@@ -21,16 +21,18 @@ export class AppComponent implements OnInit {
   ngOnInit() {
       this.registerForm = new FormGroup({
           UserName: new FormControl('',[Validators.required]),
-          UserEmailId: new FormControl(),
-          password: new FormControl(),
-          confirmPassword: new FormControl(),
+          UserEmailId: new FormControl('',[Validators.required]),
+          password: new FormControl('',[Validators.required]),
+          confirmPassword: new FormControl('',[Validators.required]),
       })
   }
-  
+
   onSubmit() {
+    if(this.registerForm.valid){
       this.recaptchaV3Service.execute('importantAction').subscribe((token: string) => {
           this.tokenVisible = true;
           this.reCAPTCHAToken = `Token [${token}] generated`;
       });
+    }
   }
 }

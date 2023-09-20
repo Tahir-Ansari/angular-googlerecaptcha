@@ -1,7 +1,4 @@
-<title>Google reCPATCHA Implementation</title>
-<title>Google reCPATCHA Implementation</title>
-<!-- main app container -->
-<div class="card m-3">
+<div class="card">
   <h5 class="card-header">User Registration</h5>
   <div class="card-body">
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
@@ -29,7 +26,7 @@
         <button class="btn btn-primary mr-1">Register</button>
       </div>
       <div *ngIf="tokenVisible"> reCAPTCHA Token <br />
-        <p style="color: red">{{reCAPTCHAToken}}</p>
+        <p class="error-text">{{reCAPTCHAToken}}</p>
       </div>
     </form>
   </div>
